@@ -1,10 +1,10 @@
-from app.db.db import Base, SessionLocal, engine;
-from app.db import crud;
-from app.db import models;
-from app.db.schemas import BookInput, CategoryInput;
+from app.db.db import Base, SessionLocal, engine
+from app.db import crud
+from app.db import models
+from app.db.schemas import BookInput, CategoryInput
 
 def seed_database() -> None:
-    Base.metadata.create_all(bind=engine);
+    Base.metadata.create_all(bind=engine)
 
     books_by_category = {
         "Horror": [
@@ -17,17 +17,19 @@ def seed_database() -> None:
             ("A Wizard of Earthsea", "A young wizard learns about magic, power, and responsibility.", 10.99),
             ("The Name of the Wind", "A gifted young man recounts the story of his life and studies.", 14.99),
         ],
-    };
+    }
 
     with SessionLocal() as db:
         for category_title, books in books_by_category.items():
-            category = next((item for item in crud.list_categories(db) if item.title == category_title), None);
-            if category is None: category = crud.create_category(db, CategoryInput(title=category_title));
-            existing_titles = { book.title for book in crud.list_books(db, category_id=category.id) };
+            category = next((item for item in crud.list_categories(db) if item.title == category_title), None)
+            if category is None:
+                category = crud.create_category(db, CategoryInput(title=category_title))
+            existing_titles = { book.title for book in crud.list_books(db, category_id=category.id) }
 
             for title, description, price in books:
-                if title not in existing_titles: crud.create_book(db, BookInput(title=title, description=description, price=price, url="", category_id=category.id));
+                if title not in existing_titles:
+                    crud.create_book(db, BookInput(title=title, description=description, price=price, url="", category_id=category.id))
 
 if __name__ == "__main__":
-    seed_database();
+    seed_database()
     print("Database initialized")
