@@ -1,5 +1,6 @@
-from app.db.database import Base, SessionLocal, engine;
+from app.db.db import Base, SessionLocal, engine;
 from app.db import crud;
+from app.db import models;
 from app.db.schemas import BookInput, CategoryInput;
 
 def seed_database() -> None:

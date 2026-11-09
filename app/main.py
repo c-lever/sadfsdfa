@@ -1,4 +1,4 @@
-from app.db.database import SessionLocal;
+from app.db.db import SessionLocal;
 from app.db import crud;
 
 def main() -> None:

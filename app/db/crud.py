@@ -1,6 +1,6 @@
 from sqlalchemy import select;
 from sqlalchemy.orm import Session;
-from app.db.database import Book, Category;
+from app.db.models import Book, Category;
 from app.db.schemas import BookInput, CategoryInput;
 
 def list_categories(db: Session):
