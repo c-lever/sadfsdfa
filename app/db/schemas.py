@@ -1,3 +1,4 @@
+from decimal import Decimal
 from pydantic import BaseModel, ConfigDict
 
 class CategoryInput(BaseModel):
@@ -10,7 +11,7 @@ class CategoryOut(CategoryInput):
 class BookInput(BaseModel):
     title: str
     description: str = ""
-    price: float
+    price: Decimal
     url: str = ""
     category_id: int
 
