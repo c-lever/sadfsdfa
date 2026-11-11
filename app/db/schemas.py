@@ -1,3 +1,4 @@
+from decimal import Decimal
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 class CategoryInput(BaseModel):
@@ -18,7 +19,7 @@ class CategoryOut(CategoryInput):
 class BookInput(BaseModel):
     title: str = Field(..., min_length=1, max_length=255)
     description: str = ""
-    price: float = Field(..., ge=0)
+    price: Decimal = Field(..., ge=0, max_digits=10, decimal_places=2)
     url: str = ""
     category_id: int
 
