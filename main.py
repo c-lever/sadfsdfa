@@ -123,3 +123,75 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+""" result
+ ~/projects/python/pp/sadfsdfa > python main.py
+Расширения файлов и их количество:
+.csv: 255
+.json: 24
+.txt: 112
+[
+  {
+    "type": "дробные",
+    "sum": -2795.289783117241,
+    "max": 49.99899978442191,
+    "min": -49.96615077835693,
+    "count": 12600
+  },
+  {
+    "type": "целые неотрицательные",
+    "sum": 195673,
+    "max": 100,
+    "min": 1,
+    "count": 6550
+  },
+  {
+    "type": "целые отрицательные",
+    "sum": 0,
+    "max": null,
+    "min": null,
+    "count": 0
+  }
+]
+Количество постов у каждого пользователя:
+1 - 10
+2 - 10
+3 - 10
+4 - 10
+5 - 10
+6 - 10
+7 - 10
+8 - 10
+9 - 10
+10 - 10
+
+Средняя длина поста: 160.64
+
+Длина постов для каждого пользователя:
+        средняя  максимальная  минимальная
+userId
+1         164.5           206          129
+2         162.9           225          111
+3         153.8           190          128
+4         182.3           212          136
+5         162.5           193          113
+6         147.0           197          122
+7         163.5           218          127
+8         160.6           196          102
+9         154.6           198          106
+10        154.7           215          109
+
+Посты со словом 'aspernatur':
+    userId  ...                                               body
+5        1  ...  ut aspernatur corporis harum nihil quis provid...
+16       2  ...  eos voluptas et aut odit natus earum\naspernat...
+35       4  ...  ad mollitia et omnis minus architecto odit\nvo...
+38       4  ...  corporis rerum ducimus vel eum accusantium\nma...
+48       5  ...  inventore ab sint\nnatus fugit id nulla sequi ...
+61       7  ...  enim aspernatur illo distinctio quae praesenti...
+62       7  ...  enim adipisci aspernatur nemo\nnumquam omnis f...
+66       7  ...  reprehenderit id nostrum\nvoluptas doloremque ...
+93      10  ...  aspernatur expedita soluta quo ab ut similique...
+
+[9 rows x 4 columns]
+"""
